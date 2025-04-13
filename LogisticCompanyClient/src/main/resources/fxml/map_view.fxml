@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ui.MapViewController" prefWidth="1000" prefHeight="600">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10px;">
+            <Label text="Start Point"/>
+            <ComboBox fx:id="comboStart" prefWidth="150"/>
+            <Label text="End Point"/>
+            <ComboBox fx:id="comboDest" prefWidth="150"/>
+            <Button fx:id="calcButton" text="Calculate" onAction="#calculateRoute"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" style="-fx-padding: 10px;" prefWidth="160">
+            <Button text="Add Point" onAction="#addPoint" prefWidth="160"/>
+            <Button text="Remove Point" onAction="#removePoint" prefWidth="160"/>
+            <Button text="Add Edge" onAction="#addEdge" prefWidth="160"/>
+            <Button text="Remove Edge" onAction="#removeEdge" prefWidth="160"/>
+			<Button text="Algorithm Selection" onAction="#openAlgorithmSelection" prefWidth="160"/>
+            <Button text="Update Map" onAction="#updateMap" prefWidth="160"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="mapContainer" style="-fx-background-color: #E0E0E0;">
+            <Label text="Map Loading..." fx:id="loadingLabel"/>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <VBox spacing="5" style="-fx-padding: 10px; -fx-border-color: black; -fx-border-width: 1px;">
+            <Label text="Route Results" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalTimeLabel" text="Total Time: XXX"/>
+            <Label fx:id="totalDistanceLabel" text="Total Distance: XXX"/>
+            <Label fx:id="routePathLabel" text="Route: A->B->C->D..."/>
+        </VBox>
+    </bottom>
+</BorderPane>
